@@ -1,12 +1,16 @@
 import { useState, useEffect } from 'react';
-import './App.css'; // Make sure your CSS file is in the src folder!
+import './styles.css'; 
 
 export default function App() {
- 
-
+  
   const [isLightMode, setIsLightMode] = useState(false);
 
-  const [likes, setLikes] = useState(0);
+  
+  const [likesHMS, setLikesHMS] = useState(0);
+  const [likesDrawing, setLikesDrawing] = useState(0);
+  const [likesMedia, setLikesMedia] = useState(0);
+  const [likesWriting, setLikesWriting] = useState(0);
+
   
   useEffect(() => {
     if (isLightMode) {
@@ -22,10 +26,10 @@ export default function App() {
     document.getElementById(targetId).scrollIntoView({ behavior: 'smooth' });
   };
 
-  
+
   return (
     <>
-      {/* NAVBAR */}
+      {/* --- NAVBAR --- */}
       <nav className="navbar">
         <div className="logo">Mio-w</div>
 
@@ -37,7 +41,6 @@ export default function App() {
         </ul>
 
         <div className="nav-icons">
-          {}
           <span 
             id="themeToggle" 
             onClick={() => setIsLightMode(!isLightMode)}
@@ -57,7 +60,7 @@ export default function App() {
         </div>
       </section>
 
-      {/* ABOUT */}
+      {/* --- PROFILE --- */}
       <section id="profile" className="section">
         <h2>Profile</h2>
         <br /> <br />
@@ -71,22 +74,22 @@ export default function App() {
         </p>
       </section>
 
-      {/* PROJECTS */}
+      {/* --- PROJECTS  --- */}
       <section id="projects" className="section">
         <h2>Projects</h2>
 
         <div className="cards">
+          
+          {/* Project Card 1 */}
           <div className="card">
             <img src="Images/ManagementSystem.png" alt="Hospital Management System" className="card-img" />
-
             <h3>Hospital Management System | Console Based</h3>
             
-            {}
             <button 
               style={{ padding: '5px 10px', marginTop: '10px', cursor: 'pointer', borderRadius: '5px' }}
-              onClick={() => setLikes(likes + 1)}
+              onClick={() => setLikesHMS(likesHMS + 1)}
             >
-              ❤️ {likes} Likes
+              ❤️ {likesHMS} Likes
             </button>
 
             <br /> <br />
@@ -95,45 +98,73 @@ export default function App() {
             </p>
           </div>
 
+          {/* Project Card 2 */}
           <div className="card">
             <img src="Images/Drawing.png" alt="HTML Drawing" className="card-img" />
-
             <h3>An HTML Drawing | HTML Only</h3>
+            
+            <button 
+              style={{ padding: '5px 10px', marginTop: '10px', cursor: 'pointer', borderRadius: '5px' }}
+              onClick={() => setLikesDrawing(likesDrawing + 1)}
+            >
+              ❤️ {likesDrawing} Likes
+            </button>
+
             <br /> <br />
             <p>
               The HTML Drawing is a fun activity given by my professor in Web Systems and Technologies class which sole purpose is to draw a house using only HTML elements and tags.
             </p>
           </div>
+
         </div>
       </section>
 
-      {/* HOBBIES */}
+      {/* --- HOBBIES  --- */}
       <section id="hobbies" className="section">
         <h2>Hobbies</h2>
+
         <div className="cards">
+          
+          {/* Hobby Card 1 */}
           <div className="card">
             <img src="Images/Playing.png" alt="Media Hobby" className="card-img" />
-
             <h3>Watching/Reading/Playing Various Medias</h3>
+            
+            <button 
+              style={{ padding: '5px 10px', marginTop: '10px', cursor: 'pointer', borderRadius: '5px' }}
+              onClick={() => setLikesMedia(likesMedia + 1)}
+            >
+              ❤️ {likesMedia} Likes
+            </button>
+
             <br /> <br />
             <p>
               I mostly watch, read, and play various media like Anime, Manga, and video games (gacha games). This is my main hobby and what I spend most of my free time on.
             </p>
           </div>
 
+          {/* Hobby Card 2 */}
           <div className="card">
             <img src="Images/Writing.png" alt="Writing Hobby" className="card-img" />
-
             <h3>Writing</h3>
+            
+            <button 
+              style={{ padding: '5px 10px', marginTop: '10px', cursor: 'pointer', borderRadius: '5px' }}
+              onClick={() => setLikesWriting(likesWriting + 1)}
+            >
+              ❤️ {likesWriting} Likes
+            </button>
+
             <br /> <br />
             <p>
               I love reviewing shows, books, and games I have experienced. I also keep a journal of my thoughts through social media, mostly about Anime, Manga, and Games.
             </p>
           </div>
+
         </div>
       </section>
 
-      {/* FOOTER */}
+      {/* --- FOOTER --- */}
       <footer className="footer">
         <p>You can see me at:</p>
 
